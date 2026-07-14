@@ -26,8 +26,8 @@ public class ClientTestRunner {
                 
                 // Pass username, password, and endpoint path directly
                 String data = secureApiClient.executeAuthenticatedCall(
-                        "admin", 
-                        "admin123", 
+                        "john_doe",
+                        "password123",
                         "/api/data/summary"
                 );
 
