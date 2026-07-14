@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
@@ -35,7 +36,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 // Build UserDetails without requiring a complex database call on every hit
                 //UserDetails userDetails = new User(username, "", Collections.emptyList());
                 UserDetails userDetails =
-                        org.springframework.security.core.userdetails.User.withUsername(username)
+                        User.withUsername(username)
                                 .password("")
                                 .authorities("ROLE_USER") // Explicitly grants standard user scope permissions
                                 .build();
