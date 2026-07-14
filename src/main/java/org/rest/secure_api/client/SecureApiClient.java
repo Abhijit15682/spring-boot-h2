@@ -29,7 +29,7 @@ public class SecureApiClient {
     public String executeAuthenticatedCall(String username, String password, String endpointPath) {
         // Step 1: Automatically log in to retrieve the JWT token
         String jwtToken = loginAndGetToken(username, password);
-
+        System.out.printf("Token : -> %s%n", jwtToken);
         // Step 2: Make the final protected resource invocation using the retrieved token
         return fetchProtectedData(jwtToken, endpointPath);
     }
